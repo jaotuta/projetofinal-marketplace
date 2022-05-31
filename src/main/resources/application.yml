@@ -1,0 +1,10 @@
+spring:
+  data:
+    mongodb:
+      password:
+      username:
+      uri: mongodb://localhost/marketplace
+      database: marketplace
+
+server:
+  port: 8089
