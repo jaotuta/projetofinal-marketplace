@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import java.util.List;
 import java.lang.String;
+import java.util.UUID;
 
 @Data
 @Document
@@ -16,6 +17,6 @@ public class Carrinho {
     @Id
     private String idCarrinho;
 
-    private List<String> listaProdutos = new ArrayList<>();
+    private List<UUID> listaProdutos = new ArrayList<>();
 
 }

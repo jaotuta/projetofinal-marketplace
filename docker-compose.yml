@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+  docker-postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=banco-produtos
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - postgresdata:/data/db-postgres
+    networks:
+      - nova-rede
+
+  mongodb:
+    image: mongo
+    volumes:
+      - mongodata:/data/db
+    ports:
+      - "27017:27017"
+
+volumes:
+  mongodata:
+  postgresdata:
+
+networks:
+  nova-rede:
+    driver: bridge

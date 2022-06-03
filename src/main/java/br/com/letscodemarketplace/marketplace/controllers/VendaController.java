@@ -1,8 +1,6 @@
 package br.com.letscodemarketplace.marketplace.controllers;
 
-import br.com.letscodemarketplace.marketplace.dto.CarrinhoResponse;
-import br.com.letscodemarketplace.marketplace.dto.FinalizarVendaRequest;
-import br.com.letscodemarketplace.marketplace.dto.NovoProdutoNoCarrinhoRequest;
+import br.com.letscodemarketplace.marketplace.dto.*;
 import br.com.letscodemarketplace.marketplace.models.Carrinho;
 import br.com.letscodemarketplace.marketplace.service.VendaService;
 import lombok.AllArgsConstructor;
@@ -11,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 
 @RestController
@@ -35,6 +34,11 @@ public class VendaController {
 
        return ResponseEntity.status(HttpStatus.OK).body(vendaService.addAoCarrinho(novoProdutoNoCarrinhoRequest));
 
+    }
+
+    @GetMapping("/teste/{id}")
+    public Cliente testeCom(@PathVariable(value = "id") String id){
+       return vendaService.buscaCliente(id);
     }
 
     @PostMapping("/finalizar")

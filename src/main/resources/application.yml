@@ -1,10 +1,19 @@
 spring:
+  application:
+    name: marketplace
   data:
     mongodb:
       password:
       username:
-      uri: mongodb://localhost/marketplace
+      uri: mongodb://localhost:27017/clientes
       database: marketplace
 
 server:
   port: 8089
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
